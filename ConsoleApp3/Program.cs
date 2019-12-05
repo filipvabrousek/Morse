@@ -52,12 +52,12 @@ namespace ConsoleApp3
             // do not extract
             if (everystr.Contains(".-.-.-."))
             {
-                everystr.Replace(".-.-.-.", "?"); // .
+                everystr.Replace(".-.-.-.", "Γ"); // .
             }
             // ../.-/--//
             if (everystr.Contains("/"))
             {
-                everystr.Replace("/", "?");
+                everystr.Replace("/", "Δ");
             }
 
             // ../.-/--//
@@ -84,11 +84,11 @@ namespace ConsoleApp3
                 }
                 else
                 {
-                    if (split[i] == "?")
+                    if (split[i] == "Γ")
                     {
                         resa += ".";
                     }
-                    else if (split[i] == "?")
+                    else if (split[i] == "Δ")
                     {
                         resa += " ";
                     }
@@ -112,12 +112,12 @@ namespace ConsoleApp3
 
             if (stro.Contains("."))
             {
-                stro.Replace(".", "?"); // .
+                stro.Replace(".", "Γ"); // .
             }
 
             if (stro.Contains(" "))
             {
-                stro.Replace(" ", "?"); //
+                stro.Replace(" ", "Δ"); //
             }
 
             res = convertText2Morse(alphabet, morse, res, stro);
@@ -148,11 +148,11 @@ namespace ConsoleApp3
                     }
                     else
                     {
-                        if (ch == "?")
+                        if (ch == "Γ")
                         {
                             res += ".-.-.-.";
                         }
-                        else if (ch == "?")
+                        else if (ch == "Δ")
                         {
                             res += "||"; // 237 is space two ||
                         }
@@ -160,9 +160,9 @@ namespace ConsoleApp3
                         {
                             Console.WriteLine("SQUARE");
                             Console.WriteLine(ch);
-                            res += "?";
+                            res += "⬛";
                         }
-                        //res += "¦";
+                        //res += "■";
                     }
 
                 }
