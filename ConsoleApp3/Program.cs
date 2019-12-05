@@ -54,12 +54,12 @@ namespace ConsoleApp3
 
             if (everystr.Contains(".-.-.-."))
             {
-                everystr.Replace(".-.-.-.", "Γ"); // .
+                everystr.Replace(".-.-.-.", "?"); // .
             }
             // ../.-/--//
             if (everystr.Contains("/"))
             {
-                everystr.Replace("/", "Δ");
+                everystr.Replace("/", "?");
             }
 
             // ../.-/--//
@@ -79,21 +79,19 @@ namespace ConsoleApp3
                 }
                 else
                 {
-                    if (split[i] == "Γ")
+                    if (split[i] == "?")
                     {
                         resa += ".";
                     }
-                    else if (split[i] == "Δ")
+                    else if (split[i] == "?")
                     {
                         resa += " ";
                     }
                 }
             }
 
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(everystr + " v textu " + resa);
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.ReadKey();
+          
+            showResult(everystr, resa, false);
         }
 
         private static void text2Morse(string[] alphabet, string[] morse)
@@ -108,12 +106,12 @@ namespace ConsoleApp3
 
             if (stro.Contains("."))
             {
-                stro.Replace(".", "Γ"); // .
+                stro.Replace(".", "?"); // .
             }
 
             if (stro.Contains(" "))
             {
-                stro.Replace(" ", "Δ"); //
+                stro.Replace(" ", "?"); //
             }
 
 
@@ -137,11 +135,11 @@ namespace ConsoleApp3
                     }
                     else
                     {
-                        if (ch == "Γ")
+                        if (ch == "?")
                         {
                             res += ".-.-.-.";
                         }
-                        else if (ch == "Δ")
+                        else if (ch == "?")
                         {
                             res += "||"; // 237 is space two ||
                         }
@@ -149,9 +147,9 @@ namespace ConsoleApp3
                         {
                             Console.WriteLine("SQUARE");
                             Console.WriteLine(ch);
-                            res += "⬛";
+                            res += "?";
                         }
-                        //res += "■";
+                        //res += "¦";
                     }
 
                 }
@@ -161,11 +159,26 @@ namespace ConsoleApp3
                 }
             }
 
+            showResult(text, res, true);
+            // return text;
+        }
+
+        private static void showResult(string text, string res, bool toMorse)
+        {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(text + " v morseovce " + res);
+            
+            if (toMorse)
+            {
+                Console.WriteLine(text + " v morseovce " + res);
+            }
+            else
+            {
+                Console.WriteLine(text + " v textu " + res);
+            }
+
+
             Console.ForegroundColor = ConsoleColor.White;
             Console.ReadKey();
-           // return text;
         }
 
         private static void GreetUser()
