@@ -12,8 +12,6 @@ namespace ConsoleApp3
         static void Main(string[] args)
         {
             // https://supermartas.cz/aplikace/online/prekladac-morseovky/
-           
-
             string[] alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "CH", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", " ", "." };
             string[] morse = { ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "----", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", "||", ".-.-.-." };
             string name = "";
@@ -28,7 +26,6 @@ namespace ConsoleApp3
                 text2Morse(alphabet, morse);
             }
 
-
             if (opt == 2)
             {
                 morse2Text(alphabet, morse);
@@ -39,7 +36,7 @@ namespace ConsoleApp3
         {
             string res = "";
 
-            Console.WriteLine("Zadejte morseovku oddělenou / pro převedení na text.");
+            Console.WriteLine("Zadejte morseovku a slova oddělujte / pro převedení na text.");
             res = Console.ReadLine();
 
             char[] reschar = res.ToCharArray();
@@ -52,6 +49,7 @@ namespace ConsoleApp3
 
             var resa = "";
 
+            // do not extract
             if (everystr.Contains(".-.-.-."))
             {
                 everystr.Replace(".-.-.-.", "?"); // .
@@ -68,6 +66,13 @@ namespace ConsoleApp3
 
             string[] split = everystr.Split('/'); // Single quotes character
 
+            resa = convertMorse2Text(alphabet, morse, resa, split);
+
+            showResult(everystr, resa, false);
+        }
+
+        private static string convertMorse2Text(string[] alphabet, string[] morse, string resa, string[] split)
+        {
             for (var i = 0; i < split.Length; i++)
             {
 
@@ -90,9 +95,10 @@ namespace ConsoleApp3
                 }
             }
 
-          
-            showResult(everystr, resa, false);
+            return resa;
         }
+
+      
 
         private static void text2Morse(string[] alphabet, string[] morse)
         {
@@ -114,7 +120,14 @@ namespace ConsoleApp3
                 stro.Replace(" ", "?"); //
             }
 
+            res = convertText2Morse(alphabet, morse, res, stro);
 
+            showResult(text, res, true);
+            // return text;
+        }
+
+        private static string convertText2Morse(string[] alphabet, string[] morse, string res, string stro)
+        {
             for (var i = 0; i < stro.Length; i++)
             {
                 var ch = stro[i].ToString().ToUpper();
@@ -159,8 +172,7 @@ namespace ConsoleApp3
                 }
             }
 
-            showResult(text, res, true);
-            // return text;
+            return res;
         }
 
         private static void showResult(string text, string res, bool toMorse)
