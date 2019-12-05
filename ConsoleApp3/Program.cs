@@ -5,10 +5,34 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
+/*! \mainpage Programová dokumentace
+ *
+ * \section intro Úvod
+ *
+ * Vítejne na hlavní stránce programové dokumentace aplikace na převod textu do Morseovky a naopak. 
+ *
+ * \section Smysl projektu
+ * 
+ * Cílem této dokumentace je představení kódu, který je schopen přepsat text do morseovy abecedy a zpět.
+ *  - https://github.com/filipvabrousek/Morse
+ *
+ */
+
+/**
+ * \file Program.cs
+ * \brief C# kód s komentáři
+ * \author Filip Vabroušek, Jiří Zenzinger, Daniel Mareček, Erik Faltynek
+ * \date Prosinec 2019
+ * \details Konzolová aplikace - vlastnosti:
+ *   - Uživatel může přeložit text do morseovky
+ *   - Uživatel může přeložit morseovku do textu
+*/
+
 namespace ConsoleApp3
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             // https://supermartas.cz/aplikace/online/prekladac-morseovky/
@@ -32,6 +56,10 @@ namespace ConsoleApp3
             }
         }
 
+        /**
+	 * \brief Metoda převádí morseovku do textu
+	 * \return morseovka v textu
+	 */
         private static void morse2Text(string[] alphabet, string[] morse)
         {
             string res = "";
@@ -71,6 +99,11 @@ namespace ConsoleApp3
             showResult(everystr, resa, false);
         }
 
+
+        /**
+	 * \brief Metoda hledá a nahrazuje odpovídající znaky v poli abeceda v textu
+	 * \return morseovka v textu
+	 */
         private static string convertMorse2Text(string[] alphabet, string[] morse, string resa, string[] split)
         {
             for (var i = 0; i < split.Length; i++)
@@ -98,8 +131,14 @@ namespace ConsoleApp3
             return resa;
         }
 
-      
 
+
+
+
+        /**
+	 * \brief Metoda převádí text do morseovky
+	 * \return Text v morseovce
+	 */
         private static void text2Morse(string[] alphabet, string[] morse)
         {
             string text;
@@ -126,6 +165,11 @@ namespace ConsoleApp3
             // return text;
         }
 
+
+        /**
+ * \brief Metoda hledá a nahrazuje odpovídající znaky v poli abeceda v textu
+ * \return text v morseovce
+ */
         private static string convertText2Morse(string[] alphabet, string[] morse, string res, string stro)
         {
             for (var i = 0; i < stro.Length; i++)
@@ -175,6 +219,11 @@ namespace ConsoleApp3
             return res;
         }
 
+        /**
+* \brief Metoda vypíše výstup programu uživateli na konzoli
+* \return
+*/
+
         private static void showResult(string text, string res, bool toMorse)
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -192,6 +241,12 @@ namespace ConsoleApp3
             Console.ForegroundColor = ConsoleColor.White;
             Console.ReadKey();
         }
+
+
+        /**
+* \brief Uvítací funkce, která uživatele seznámí s programem
+* \return
+*/
 
         private static void GreetUser()
         {
