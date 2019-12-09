@@ -54,6 +54,8 @@ namespace ConsoleApp3
             {
                 morse2Text(alphabet, morse);
             }
+
+           
         }
 
         /**
@@ -227,7 +229,7 @@ namespace ConsoleApp3
         private static void showResult(string text, string res, bool toMorse)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            
+
             if (toMorse)
             {
                 Console.WriteLine(text + " v morseovce " + res);
@@ -237,6 +239,7 @@ namespace ConsoleApp3
                 Console.WriteLine(text + " v textu " + res);
             }
 
+            test();
 
             Console.ForegroundColor = ConsoleColor.White;
             Console.ReadKey();
@@ -257,6 +260,41 @@ namespace ConsoleApp3
             Console.WriteLine("Zadejte 1 pro převod textu do morseovky.");
             Console.WriteLine("Zadejte 2 pro převod morseovky do textu.");
         }
+
+
+        private static void test()
+        {
+            string[] alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "CH", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", " ", "." };
+            string[] morse = { ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "----", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", "||", ".-.-.-." };
+
+            string res = "";
+            string text = "TEST MORSEOVKY";
+            char[] characters = text.ToCharArray();
+            var stro = new String(characters);
+
+            if (stro.Contains("."))
+            {
+                stro.Replace(".", "Γ"); // .
+            }
+
+            if (stro.Contains(" "))
+            {
+                stro.Replace(" ", "Δ"); //
+            }
+
+            res = convertText2Morse(alphabet, morse, res, stro);
+
+            // showResult(text, res, true);
+
+           
+            Console.WriteLine("Testuji zda se vstup rovná očekávanému výstupu.");
+
+
+            if (res == "-/./.../-/||/--/---/.-./..././---/...-/-.-/-.--/")
+            {
+
+                Console.WriteLine("TEST PROŠEL.");
+            }
+        }
     }
 }
-
