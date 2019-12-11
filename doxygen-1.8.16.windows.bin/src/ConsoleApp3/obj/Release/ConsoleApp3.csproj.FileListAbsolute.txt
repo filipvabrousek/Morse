@@ -1,0 +1,7 @@
+C:\Users\student\Downloads\Morse-master\Morse-master\ConsoleApp3\bin\Release\ConsoleApp3.exe.config
+C:\Users\student\Downloads\Morse-master\Morse-master\ConsoleApp3\bin\Release\ConsoleApp3.exe
+C:\Users\student\Downloads\Morse-master\Morse-master\ConsoleApp3\bin\Release\ConsoleApp3.pdb
+C:\Users\student\Downloads\Morse-master\Morse-master\ConsoleApp3\obj\Release\ConsoleApp3.csprojAssemblyReference.cache
+C:\Users\student\Downloads\Morse-master\Morse-master\ConsoleApp3\obj\Release\ConsoleApp3.csproj.CoreCompileInputs.cache
+C:\Users\student\Downloads\Morse-master\Morse-master\ConsoleApp3\obj\Release\ConsoleApp3.exe
+C:\Users\student\Downloads\Morse-master\Morse-master\ConsoleApp3\obj\Release\ConsoleApp3.pdb
