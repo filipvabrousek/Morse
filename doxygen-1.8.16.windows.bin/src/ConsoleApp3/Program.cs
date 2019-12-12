@@ -257,7 +257,7 @@ namespace ConsoleApp3
             {
                 Console.WriteLine(text + " v textu " + res);
             }
-
+	    test();
 
             Console.ForegroundColor = ConsoleColor.White;
             Console.ReadKey();
