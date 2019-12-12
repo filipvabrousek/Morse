@@ -314,6 +314,10 @@ namespace ConsoleApp3
 
                 Console.WriteLine("TEST PROŠEL.");
             }
+	    else
+	    {
+		Console.WriteLine("TEST NEPROŠEL.")
+	    }
         }
     }
 }
